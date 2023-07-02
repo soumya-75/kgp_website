@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Algerian&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: lightblue;
+            margin: 0;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: center;
+            background-color: transparent;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+        }
+        
+        .navbar button {
+            background-color: darkgreen;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            margin: 0 10px;
+            border-radius: 50%;
+            font-size: 16px;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+        }
+        
+        .navbar button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            background-color: lightgreen;
+            color: black;
+        }
+        
+        .form-container {
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .form-container input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            margin: 5px;
+        }
+        
+        .form-container input[type="submit"] {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .background-image {
+            position: fixed;
+            top: 120px;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 120px);
+            opacity: 0.05;
+            z-index: -1;
+        }
+        
+        h2 {
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 32px;
+            font-family: 'Algerian', sans-serif;
+        }
+
+        .logo {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .logo img {
+            width: 70%;
+            max-height: 300px;
+            object-fit: contain;
+        }
+
+        .moving-text {
+            position: absolute;
+            top: calc(48% - 10px);
+            transform: translateX(-50%);
+            white-space: nowrap;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: Calibri, sans-serif;
+            color: red;
+            animation: moveText 10s linear infinite;
+        }
+
+        @keyframes moveText {
+            0% {
+                transform: translateX(-100%);
+            }
+            50% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar-container">
+        <div class="navbar">
+            <button>Home</button>
+            <button>Upload</button>
+            <button>Download</button>
+            <button>Faculty</button>
+            <button>About</button>
+        </div>
+    </div>
+
+    <div class="logo">
+        <img src="C:\Users\Soumyadip\Desktop\kgpwebpage_chatgpt\chatgpt_webpage_kgp\IIT-Kharagpur-01.png" alt="Logo">
+    </div>
+    
+    <img class="background-image" src="C:\Users\Soumyadip\Desktop\kgpwebpage_chatgpt\chatgpt_webpage_kgp\kgp.jpg" alt="IIT KGP Image">
+    <div class="form-container">
+        <h2>IIT KGP Student details</h2>
+        <form action="#" method="POST">
+            <input type="text" name="name" placeholder="Name" required><br>
+            <input type="text" name="section" placeholder="Section" required><br>
+            <input type="text" name="rollNumber" placeholder="Roll number" required><br>
+            <input type="text" name="hallOfResidence" placeholder="Hall of Residence" required><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div class="moving-text">Dedicated to the Service of the Nation</div>
+
+    <script>
+        const movingText = document.querySelector('.moving-text');
+        const containerWidth = document.body.clientWidth;
+        const textWidth = movingText.clientWidth;
+
+        movingText.style.animationDuration = `${(containerWidth + textWidth) / 100}px`;
+    </script>
+</body>
+</html>
